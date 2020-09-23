@@ -58,8 +58,9 @@ input:focus , button:focus{
     font-weight: bolder;
     font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
 }
+
 div p{
-    margin: 0;
+    margin: 3px;
     font-weight: bolder;
     font-size: 10px;
 }
@@ -69,7 +70,26 @@ div p{
 button, input{
     cursor: pointer;
 }
-#alerterr{
+.valid {
+    color: green;
+}
+.valid:before {
+    position: relative;
+    padding-right: 10px;
+    content: ' \2714';
+}
+  
+  /* Add a red text color and an "x" when the requirements are wrong */
+.invalid {
+    color: red;
+}
+  
+.invalid:before {
+    position: relative;
+    padding-right: 10px;
+    content: ' \2716';
+}
+/* #alerterr{
     background-color: rgb(219, 74, 74);
     border-radius: 10px;
     text-align: center;
@@ -77,11 +97,20 @@ button, input{
     clear: both;
     width: 80%;
     margin: 30px auto 0 auto;
-}
-#errtype{ 
+} */
+#errpassword , #erruser{ 
     /* padding-top: 10px; */
-    color: white;
-    font-size: 15px;
+    color: red;
+    font-size: 12px;
+    margin: 0;
+    font-weight: unset;
+    display: none;
+}
+#erruser1, #errpass1
+{
+    color: red;
+    /* color: rgb(238, 139, 139); */
+    font-size: 12px;
     margin: 0;
     font-weight: unset;
 }

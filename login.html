@@ -21,24 +21,40 @@
             <div id="log">
                 <h2>Login</h2>
             </div>
-            <div>
+            <div id="userinput">
                 <p>Username</p>
                 <i class="fa fa-user"></i>
-                <input id="user" type="text" placeholder="Type your username">
+                <input id="user" type="email" placeholder="Type your username" 
+                pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,}$" title="characters@characters.domain">
+                <div id="erruser">
+                    <p class="invalid" id="domainmail">characters@characters.domain
+
+                    </p>
+                </div>
+                <p id="erruser1"></p>
+                
             </div>
+            
             <div id="pass">
                 <p>Password</p>
                 <i class="fa fa-lock"></i>
-                <input id="password" type="text" placeholder="Type your password">
+                <input id="password" type="password" placeholder="Type your password" pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}" 
+                title="Must contain at least one number and one uppercase and lowercase letter, and at least 8 or more characters"
+                required>
+                <div id="errpassword">
+                    <p id="number" class="invalid">at least one number</p>
+                    <p id="upper" class="invalid">one uppercase</p>
+                    <p id="lower" class="invalid">lowercase letter</p>
+                    <p id="minlength" class="invalid">Minium 8 characters</p>
+                </div>
+                <p id="errpass1"></p>
             </div>
             <div id="forgotbutton">
                 <button>Forgot Password?</button>
             </div>
-            <div id="alerterr">
-                <p id="errtype"></p>
-            </div>
+
             <div>
-                <button id="loginbutton" onclick="getvalue()">Login</button>
+                <button type="submit" value="Submit" id="loginbutton" onclick="getvalue()">Login</button>
             </div>
             <p id="signorther">Or sign Up Using</p>
             <div class="icon">
