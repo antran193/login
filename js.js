@@ -1,10 +1,29 @@
+
+
 var user = "";
 var password = "";
+var userlocal= localStorage.getItem("user");
+var passlocal=localStorage.getItem("pass");
+// if(userlocal!="" && passlocal!="")
+// {
+//     window.location="file:///C:/data/banh/banh/index.html";
+// }
+
+
+// function onSignIn(googleUser) {
+//     var profile = googleUser.getBasicProfile();
+//     console.log('ID: ' + profile.getId()); // Do not send to your backend! Use an ID token instead.
+//     console.log('Name: ' + profile.getName());
+//     console.log('Image URL: ' + profile.getImageUrl());
+//     console.log('Email: ' + profile.getEmail()); // This is null if the 'email' scope is not present.
+// }
+
+
 
 function getvalue() {
     user = document.getElementById("user").value;
     password = document.getElementById("password").value;
-    console.log(user, password);
+    // console.log(user, password);
     $.ajax({
         url: "https://5f6599069385b80016c5f7d2.mockapi.io/api/login/usertable", // gửi ajax đến file result.php
         type: "get", // chọn phương thức gửi là get
@@ -15,8 +34,12 @@ function getvalue() {
             console.log(result);
         }
     });
-
 }
+
+
+
+
+
 var y = document.getElementById("errpassword");
 var z = document.getElementById("erruser");
 var userinput = document.getElementById("user");
@@ -43,10 +66,22 @@ userinput.onfocus=function()
 {
     z.style.display="block";
     document.getElementById("erruser1").style.display="none";
+    if(localStorage.getItem("user")!="")
+    {
+        document.getElementById("user").value=localStorage.getItem("user");
+    }
 }
 passwordinput.onfocus = function () {
     y.style.display = "block";
     document.getElementById("errpass1").style.display="none";
+    if(localStorage.getItem("user")==document.getElementById("user").value)
+    {
+        var ad=localStorage.getItem("pass")
+        console.log(ad);
+        document.getElementById("password").value=ad;
+    }
+    // else
+     
 
 }
 passwordinput.onblur = function () {
@@ -122,44 +157,86 @@ function authen(data) {
     passwordinput.style.border = "none";
     y.innerHTML="";
     z.innerHTML="";
-    for (var i = 0; i < data.length; i++) {
-        if (user == "") {
-            z.innerHTML = "Enter your mail";
-            userinput.style.border = "solid 2px red";
-            userinput.style.backgroundColor = "#fceae9";
-            if (password == "") {
+    var lengh=data.length;
+    for (var i = 0; i < lengh; i++) {
+        
+        if (user == "" || password == "") {
+            if(user == "" && password != "")
+            {
+                y.innerHTML = "Sai password";
+                passwordinput.style.border = "solid 2px red";
+                passwordinput.style.backgroundColor = "#fceae9";
+                z.innerHTML = "Enter your mail";
+                userinput.style.border = "solid 2px red";
+                userinput.style.backgroundColor = "#fceae9";
+                break;
+                
+            }
+            if(user == "" && password == "")
+            {
                 y.innerHTML = "Enter your password";
                 passwordinput.style.border = "solid 2px red";
                 passwordinput.style.backgroundColor = "#fceae9";
+                z.innerHTML = "Enter your mail";
+                userinput.style.border = "solid 2px red";
+                userinput.style.backgroundColor = "#fceae9";
+                break;
             }
-            break;
+            if(user != "" && password == "")
+            {
+                y.innerHTML = "Enter your password";
+                passwordinput.style.border = "solid 2px red";
+                passwordinput.style.backgroundColor = "#fceae9";
+                z.innerHTML = "Sai user";
+                userinput.style.border = "solid 2px red";
+                userinput.style.backgroundColor = "#fceae9";
+                break;
+            }
+            
         }
         if (user == data[i].username && password == data[i].password) {
+            // function()
+            {
+                // window.location="file:///C:/xampp/htdocs/login/table.html";
+                // window.location="file:///C:/data/login/table.html";
+                // window.location="http://localhost/login/table.html"
+                var a=localStorage.setItem("user",user);
+                var b=localStorage.setItem("pass",password);
+
+                console.log(a,b);
+            }
             alert("thanhf coong");
             break;
         }
         if (user == data[i].username && password != data[i].password) {
-            y.innerHTML = "Sai password";
-            passwordinput.style.border = "solid 2px red";
-            passwordinput.style.backgroundColor = "#fceae9";
-            break;
+            if(i=data.length-1)
+            {
+                y.innerHTML = "Sai password";
+                passwordinput.style.border = "solid 2px red";
+                passwordinput.style.backgroundColor = "#fceae9";
+                break;
+            }     
         }
         if (user != data[i].username && password == data[i].password) {
-            z.innerHTML = "Sai User";
-            userinput.style.border = "solid 2px red";
-            userinput.style.backgroundColor = "#fceae9";
-            break;
+            if(i=data.length-1)
+            {
+                z.innerHTML = "Sai User";
+                userinput.style.border = "solid 2px red";
+                userinput.style.backgroundColor = "#fceae9";
+                break;
+            }
         }
         if (user != data[i].username && password != data[i].password) {
-            y.innerHTML = "Sai password";
-            z.innerHTML = "Sai User";
-            passwordinput.style.border = "solid 2px red";
-            userinput.style.border = "solid 2px red";
-            userinput.style.backgroundColor = "#fceae9";
-            passwordinput.style.backgroundColor = "#fceae9";
-            break;
+            if(i==lengh)
+            {
+                y.innerHTML = "Sai password";
+                z.innerHTML = "Sai User";
+                passwordinput.style.border = "solid 2px red";
+                userinput.style.border = "solid 2px red";
+                userinput.style.backgroundColor = "#fceae9";
+                passwordinput.style.backgroundColor = "#fceae9";
+                break;
+            }
         }
-
-
     }
 }
