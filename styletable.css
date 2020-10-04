@@ -1,0 +1,81 @@
+#editors{
+    display: none;
+    float: right;
+    color: red;
+    height: 50px;
+    width: 180px;
+    margin-top: 20px;
+}
+.new , .edit ,.delete
+{
+    color: white;
+    border-radius: 5px;
+    border: solid 1px rgba(255, 255, 255, 0);
+    cursor: pointer;
+}
+.new:focus , .edit:focus ,.delete:focus{
+    outline: none;
+}
+#new{
+    background-color: rgb(54, 125, 219);
+}
+#edit{
+    background-color: rgb(109, 170, 109);
+}
+#delete{
+    background-color: rgb(206, 76, 76);
+}
+div.modal-body{
+    /* height: 200px;
+    width: 200px; */
+    display: flex;
+    flex-direction: column;
+}
+.modal-list{
+    padding: 10px;
+
+}
+.modal-input{
+    float: right;
+    width: 350px;
+    border-radius: 5px;
+    border: solid 1px black;
+    height: 30px;
+}
+.modal-text{
+    float: left;
+    font-size: 15px;
+    margin-top: 5px;
+}
+.modal-input:focus{
+    border-radius: 5px;
+    border: solid 1px black;
+    outline: none;
+    background-color: rgb(223, 215, 215);
+}
+.modal-header{
+    padding: 0 !important;
+    height: 65px;
+    width: 498px;
+}
+.modal-title{
+    background-color: rgb(108, 128, 218);
+    height: 65px;
+    width: 433px;
+    padding: 15px;
+    text-align: center;
+    font-family: 'Times New Roman', Times, serif;
+
+}
+div button.close{
+    background-color: rgb(221, 82, 82);
+    opacity: 1;
+    height: 65px;
+    width: 65px;
+    margin: 0 !important;
+    color: white;
+}
+div button.close:hover{
+    color: white;
+    background-color: rgb(226, 11, 11);
+}
