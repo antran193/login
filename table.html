@@ -33,10 +33,13 @@
 </head>
 
 <body>
-    <div id="editors">
+    <div >
         <button class="new" id="new" onclick="newuser()">New</button>
-        <button class="edit" id="edit" onclick="editrow()">Edit</button>
-        <button class="delete" id="delete" onclick="deleteuser()"> Delete</button>
+        <div id="editors">
+            <button class="edit" id="edit" onclick="editrow()">Edit</button>
+            <button class="delete" id="delete" onclick="deleteuser()"> Delete</button>
+        </div>
+        
     </div>
 
     <table id="example" class="display" width="100%"></table>
@@ -50,10 +53,10 @@
                     </button>
                 </div>
                 <div class="modal-body">
-                    <div class="modal-list">
+                    <!-- <div class="modal-list">
                         <h3 class="modal-text">Id</h3>
                         <input class="modal-input" id="id" type="submit">
-                    </div>
+                    </div> -->
                     <div class="modal-list">
                         <h3 class="modal-text">Username</h3>
                         <input class="modal-input" id="name" type="text">

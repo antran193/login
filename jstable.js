@@ -58,7 +58,7 @@ function newuser(){
     var u = result.length;
     var rowu=result[u-1];
     newdata[0] = parseInt(rowu[0])+1;
-    document.getElementById("id").value = newdata[0];
+    // document.getElementById("id").value = newdata[0];
 }
 
 function editrow() {
@@ -79,12 +79,13 @@ function deleteuser(){
             { id: data1[0], username: data1[1], password: data1[2] },
         success: function (result) {
             console.log(result);
+            var table = $('#example').DataTable();
+            table.destroy();
+            updatetable();
         },
 
     });
-    var table = $('#example').DataTable();
-    table.destroy();
-    updatetable();
+
 }
 
 function divedit() {
@@ -118,7 +119,7 @@ function updatedata() {
 
 
 function savechange1() {
-    newdata[0] = document.getElementById("id").value;
+    // newdata[0] = document.getElementById("id").value;
     newdata[1] = document.getElementById("name").value;
     newdata[2] = document.getElementById("pass").value;
     updatedata();
@@ -137,16 +138,17 @@ function updaterow(a){
             { id: a[0], username: a[1], password: a[2] },
         success: function (result) {
             console.log(result);
+            var table = $('#example').DataTable();
+            table.destroy();
+            updatetable();
+            document.getElementById("modalexam").style.display = "none";
         },
 
     });
-    var table = $('#example').DataTable();
-    table.destroy();
-    updatetable();
-    document.getElementById("modalexam").style.display = "none";
+
 }
 
-function newrow(){
+function newrow(a){
     $.ajax({
         url: "https://5f6599069385b80016c5f7d2.mockapi.io/api/login/usertable", // gửi ajax đến file result.php
         type: "post", // chọn phương thức gửi là get
@@ -155,13 +157,14 @@ function newrow(){
             { id: a[0], username: a[1], password: a[2] },
         success: function (result) {
             console.log(result);
+            var table = $('#example').DataTable();
+            table.destroy();
+            updatetable();
+            document.getElementById("modalexam").style.display = "none";
         },
 
     });
-    var table = $('#example').DataTable();
-    table.destroy();
-    updatetable();
-    document.getElementById("modalexam").style.display = "none";
+
 }
 
 function updatetable() {
