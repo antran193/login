@@ -198,14 +198,14 @@ function authen(data) {
             // function()
             {
                 // window.location="file:///C:/xampp/htdocs/login/table.html";
-                // window.location="file:///C:/data/login/table.html";
+                window.location="./table.html";
                 // window.location="http://localhost/login/table.html"
                 var a=localStorage.setItem("user",user);
                 var b=localStorage.setItem("pass",password);
 
                 console.log(a,b);
             }
-            alert("thanhf coong");
+            // alert("thanhf coong");
             break;
         }
         if (user == data[i].username && password != data[i].password) {
