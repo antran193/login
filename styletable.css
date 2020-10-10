@@ -1,3 +1,33 @@
+.left{
+    width: 15%;
+    float: left;
+    background-color: #afedff;
+    height: 100%;
+}
+.right{
+    width: 85%;
+    float: right;
+    padding: 10px;
+}
+.left>h3{
+    margin-top: 20px;
+    font-size: 20px;
+    margin-left: 20px;
+    font-weight: bolder;
+}
+ul{
+    list-style: none;
+    padding-left: 30px;
+}
+ul li{
+    font-weight: bolder;
+}
+.img{
+    width: 30px;
+    height: 30px;
+    margin: 5px;
+    
+}
 #editors{
     display: none;
     float: right;
@@ -115,4 +145,28 @@ div button.close{
 div button.close:hover{
     color: white;
     background-color: rgb(226, 11, 11);
+}
+th.sorting, th.sorting_asc
+{
+    background-color: #d5f4e6;
+    border: solid 1px rgb(190, 190, 190);
+}
+#example_paginate
+{
+    background-color:#428bca;
+
+}
+/* #example_paginate a{
+    color: white !important;
+} */
+.dataTables_wrapper .dataTables_paginate a.paginate_button{
+    color: white !important;
+}
+.dataTables_wrapper .dataTables_paginate a.paginate_button:hover
+{
+    background:  rgb(224, 83, 102);
+    border: 1px solid rgb(199, 129, 138);
+}
+tr.odd, tr.even, tr.odd td, tr.even td{
+    border: solid 1px rgb(190, 190, 190);
 }

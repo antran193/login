@@ -45,15 +45,15 @@ var z = document.getElementById("erruser");
 var userinput = document.getElementById("user");
 var passwordinput = document.getElementById("password");
 
-function loadform() {
-    var x = document.getElementById("formlogin").style.display = "block";
-}
-window.onclick = function (event) {
-    var y = document.getElementById("formlogin");
-    if (event.target == y) {
-        y.style.display = "none";
-    }
-}
+// function loadform() {
+//     var x = document.getElementById("formlogin").style.display = "block";
+// }
+// window.onclick = function (event) {
+//     var y = document.getElementById("formlogin");
+//     if (event.target == y) {
+//         y.style.display = "none";
+//     }
+// }
 
 var domainmail=document.getElementById("domainmail");
 var passwordinput = document.getElementById("password");
