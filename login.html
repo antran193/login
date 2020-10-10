@@ -69,10 +69,13 @@
             <div id="pass">
                 <p>Password</p>
                 <i class="fa fa-lock"></i>
-                <input id="password" type="password" placeholder="Type your password"
+                <span class="hidenspan">
+                    <input id="password" type="password" placeholder="Type your password"
                     pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}"
                     title="Must contain at least one number and one uppercase and lowercase letter, and at least 8 or more characters"
                     required>
+                    <button class="hiden" type="button" onmousedown="mDown()" onmouseup="mUp(this)" ><i class="fa fa-eye-slash"></i></button>
+                </span> 
                 <div id="errpassword">
                     <p id="number" class="invalid">at least one number</p>
                     <p id="upper" class="invalid">one uppercase</p>

@@ -85,13 +85,11 @@ passwordinput.onfocus = function () {
 
 }
 passwordinput.onblur = function () {
-    y.style.display = "none";
+    y.style.display = "block";
     
 }
 userinput.onblur=function(){
-    z.style.display="none";
-    
-
+    z.style.display="block";
 }
 userinput.onkeyup= function()
 {
@@ -239,4 +237,12 @@ function authen(data) {
             }
         }
     }
+}
+function mDown()
+{
+    document.getElementById("password").type= "text";
+}
+function mUp()
+{
+    document.getElementById("password").type= "password";
 }

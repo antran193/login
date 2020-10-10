@@ -34,7 +34,35 @@ html,body{
     background: rgb(236,14,253);
     background: linear-gradient(231deg, rgba(236,14,253,1) 0%, rgba(153,88,242,1) 50%, rgba(4,217,222,1) 100%);
 }
-div input{
+input#password{
+    width: 85%;
+    margin-bottom: 5px;
+    border: none;
+    /* border-bottom: solid 1px rgb(107, 105, 105); */
+    padding: 7px;
+    padding-left: 25px;
+    font-size: 13px;
+}
+.hidenspan
+{
+    margin-bottom: 5px;
+    border: none;
+    border-bottom: solid 1px rgb(107, 105, 105);
+    padding: 8px 0 8px;
+    width: 100%;
+    font-size: 13px;
+}
+.hiden{
+    border: none;
+    background-color: unset;
+  
+}
+i.fa-eye-slash
+{
+    color: rgb(126, 117, 117);
+}
+input#user
+{
     width: 100%;
     margin-bottom: 5px;
     border: none;
@@ -42,7 +70,6 @@ div input{
     padding: 8px;
     padding-left: 25px;
     font-size: 13px;
-
 }
 input:focus , button:focus{
     border: none !important;
