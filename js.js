@@ -23,17 +23,22 @@ var passlocal=localStorage.getItem("pass");
 function getvalue() {
     user = document.getElementById("user").value;
     password = document.getElementById("password").value;
+    var domancharacter=  /[a-z0-9_]+@[a-z0-9.-]+\.[a-z]{2,}$/g;
+    var pass = /(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}/g;
+    if(user.match(domancharacter)&&password.match(pass))
+    {
+        $.ajax({
+            url: "https://5f6599069385b80016c5f7d2.mockapi.io/api/login/usertable", // gửi ajax đến file result.php
+            type: "get", // chọn phương thức gửi là get
+            dateType: "json", // dữ liệu trả về dạng text
+            success: function (result) {
+                // Sau khi gửi và kết quả trả về thành công thì gán nội dung trả về
+                authen(result);
+                console.log(result);
+            }
+        });
+    }
     // console.log(user, password);
-    $.ajax({
-        url: "https://5f6599069385b80016c5f7d2.mockapi.io/api/login/usertable", // gửi ajax đến file result.php
-        type: "get", // chọn phương thức gửi là get
-        dateType: "json", // dữ liệu trả về dạng text
-        success: function (result) {
-            // Sau khi gửi và kết quả trả về thành công thì gán nội dung trả về
-            authen(result);
-            console.log(result);
-        }
-    });
 }
 
 
